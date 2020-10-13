@@ -1,7 +1,7 @@
 package com.example.retrofitmvvmmovie.service
 
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 private const val BASE_URL = "https://api.themoviedb.org/3/"
 
@@ -10,7 +10,7 @@ class RetrofitInstance {
         fun getService(): MovieApiService {
             if (retrofit == null){
                 retrofit = Retrofit.Builder()
-                    .addConverterFactory(MoshiConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(BASE_URL)
                     .build()
             }
